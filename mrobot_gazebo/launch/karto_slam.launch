@@ -1,0 +1,12 @@
+<launch>
+	<node pkg="slam_karto" type="slam_karto" name="slam_karto"
+output="screen">
+		<param name="odom_frame" value="odom" />
+		<param name="map_update_interval" value="4" />
+		<param name="resolution" value="0.025" />
+	</node>
+	<node pkg="tf" type="static_transform_publisher"
+name="base_to_laser_broadcaster" args=" 0 0 0 0 0 0 /base_link /laser 100"/>
+	<!--node pkg="tf" type="static_transfom_publisher"
+name="odom_to_base" args=" 0 0 0 0 0 0 /odom /base_link 100"/-->
+</launch>
